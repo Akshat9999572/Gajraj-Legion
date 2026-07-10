@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { RoyalElephant } from "./RoyalElephant";
 
 const squad = [
   "Alok Awasthi",
@@ -41,6 +42,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-art">
+          <RoyalElephant />
           <div className="red-disc" />
           <div className="line-orbit" />
           <Image src="/assets/gajraj-crest.jpg" alt="Gajraj Legion elephant and cricket crest" width={1350} height={1540} priority />
