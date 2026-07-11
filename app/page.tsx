@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { RoyalElephant } from "./RoyalElephant";
 
-const ASSET_ROOT = "https://raw.githubusercontent.com/Akshat9999572/Gajraj-Legion/main/public/assets";
+const ASSET_ROOT = "/assets";
 
 const squad = [
   "Alok Awasthi",
