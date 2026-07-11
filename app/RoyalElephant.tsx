@@ -1,7 +1,8 @@
 export function RoyalElephant() {
   return (
-    <div className="royal-elephant royal-elephant-walking" aria-label="Animated royal elephant mascot">
-      <svg viewBox="0 0 280 190" role="img" aria-labelledby="elephant-title elephant-description">
+    <>
+      <div className="royal-elephant royal-elephant-walking" aria-label="Animated royal elephant mascot">
+        <svg viewBox="0 0 280 190" role="img" aria-labelledby="elephant-title elephant-description">
         <title id="elephant-title">Gajraj royal elephant</title>
         <desc id="elephant-description">A small colourful crowned elephant walking with a gently moving trunk.</desc>
         <defs>
@@ -34,8 +35,29 @@ export function RoyalElephant() {
         </g>
         <path className="elephant-spark elephant-spark-one" d="m242 40 4 9 10 3-10 4-4 10-4-10-10-4 10-3 4-9Z" fill="#d9a630"/>
         <path className="elephant-spark elephant-spark-two" d="m44 30 3 7 8 3-8 3-3 8-3-8-8-3 8-3 3-7Z" fill="#ff4a36"/>
-      </svg>
-      <span>THE ROYAL GUARDIAN</span>
-    </div>
+        </svg>
+        <span>THE ROYAL GUARDIAN</span>
+      </div>
+      <style>{`
+        .royal-elephant-walking{top:22px;width:clamp(165px,17vw,245px);perspective:520px}
+        .royal-elephant-walking svg{transform:rotateX(8deg) rotateY(-8deg)}
+        .elephant-walk-head,.elephant-walk-body,.elephant-leg{transform-box:fill-box}
+        .elephant-walk-head{transform-origin:50% 90%}
+        .elephant-walk-body{transform-origin:50% 72%}
+        .elephant-leg{transform-origin:50% 8%}
+        @media(prefers-reduced-motion:no-preference){
+          .royal-elephant-walking svg{animation:elephant-march 4.4s ease-in-out infinite}
+          .elephant-walk-body{animation:elephant-bob 1.35s ease-in-out infinite}
+          .elephant-walk-head{animation:elephant-nod 1.35s ease-in-out infinite}
+          .elephant-leg-one,.elephant-leg-three{animation:front-step 1.35s ease-in-out infinite}
+          .elephant-leg-two{animation:back-step 1.35s ease-in-out infinite}
+          @keyframes elephant-march{0%,100%{transform:rotateX(8deg) rotateY(-8deg) translateX(0)}50%{transform:rotateX(8deg) rotateY(-11deg) translateX(-5px)}}
+          @keyframes elephant-bob{50%{transform:translateY(3px) scaleY(.985)}}
+          @keyframes elephant-nod{50%{transform:translateY(4px) rotate(1.7deg)}}
+          @keyframes front-step{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(7deg) translateY(-4px)}}
+          @keyframes back-step{0%,100%{transform:rotate(7deg) translateY(-3px)}50%{transform:rotate(-5deg) translateY(1px)}}
+        }
+      `}</style>
+    </>
   );
 }
