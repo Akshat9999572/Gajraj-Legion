@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { RoyalElephant } from "./RoyalElephant";
 
+const ASSET_ROOT = "https://raw.githubusercontent.com/Akshat9999572/Gajraj-Legion/main/public/assets";
+
 const squad = [
   "Alok Awasthi",
   "Atul Pratap Singh",
@@ -45,7 +47,7 @@ export default function Home() {
           <RoyalElephant />
           <div className="red-disc" />
           <div className="line-orbit" />
-          <Image src="/assets/gajraj-crest.jpg" alt="Gajraj Legion elephant and cricket crest" width={1350} height={1540} priority />
+          <Image src={`${ASSET_ROOT}/gajraj-crest.jpg`} alt="Gajraj Legion elephant and cricket crest" width={1350} height={1540} priority />
           <p className="vertical-note">STRENGTH • WISDOM • UNITY</p>
         </div>
         <div className="hero-ticker"><span>शिक्षक खिलाड़ी — निपुण विद्यार्थी</span><b>GAJRAJ LEGION</b><span>UNNAO TEACHERS’ PREMIER LEAGUE</span></div>
@@ -74,14 +76,14 @@ export default function Home() {
           <h2>TWO MINDS.<br/><span>ONE MISSION.</span></h2>
         </div>
         <article className="leader-card owner">
-          <Image className="leader-photo" src="/assets/alok-awasthi.jpg" alt="Alok Awasthi, owner of Gajraj Legion" fill sizes="(max-width: 900px) 50vw, 33vw" />
+          <Image className="leader-photo" src={`${ASSET_ROOT}/alok-awasthi.jpg`} alt="Alok Awasthi, owner of Gajraj Legion" fill sizes="(max-width: 900px) 50vw, 33vw" />
           <div className="leader-shade" />
           <span className="role">TEAM OWNER</span><span className="number">01</span>
           <h3>ALOK<br/>AWASTHI</h3>
           <p>“A team is built long before the first ball is bowled.”</p>
         </article>
         <article className="leader-card captain">
-          <Image className="leader-photo" src="/assets/mayank-mishra.png" alt="Mayank Mishra, captain of Gajraj Legion" fill sizes="(max-width: 900px) 50vw, 33vw" />
+          <Image className="leader-photo" src={`${ASSET_ROOT}/mayank-mishra.png`} alt="Mayank Mishra, captain of Gajraj Legion" fill sizes="(max-width: 900px) 50vw, 33vw" />
           <div className="leader-shade" />
           <span className="role">CAPTAIN</span><span className="number">11</span>
           <h3>MAYANK<br/>MISHRA</h3>
@@ -97,8 +99,8 @@ export default function Home() {
           <h2>WEAR THE<br/><span>SKY.</span><br/>CARRY THE<br/><i>CROWN.</i></h2>
           <p>The elephant stands for strength held with wisdom. Gold marks ambition. Sky blue carries the openness of every possibility.</p>
         </div>
-        <div className="jersey front"><Image src="/assets/gajraj-jersey-front.png" alt="Front of the Gajraj Legion cricket jersey" fill sizes="(max-width: 700px) 90vw, 42vw" /></div>
-        <div className="jersey back"><Image src="/assets/gajraj-jersey-back.png" alt="Back of the Gajraj Legion cricket jersey" fill sizes="(max-width: 700px) 90vw, 34vw" /></div>
+        <div className="jersey front"><Image src={`${ASSET_ROOT}/gajraj-jersey-front.png`} alt="Front of the Gajraj Legion cricket jersey" fill sizes="(max-width: 700px) 90vw, 42vw" /></div>
+        <div className="jersey back"><Image src={`${ASSET_ROOT}/gajraj-jersey-back.png`} alt="Back of the Gajraj Legion cricket jersey" fill sizes="(max-width: 700px) 90vw, 34vw" /></div>
       </section>
 
       <section className="squad" id="squad">
@@ -120,7 +122,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-crest"><Image src="/assets/gajraj-crest.jpg" alt="Gajraj Legion crest" width={260} height={296} /></div>
+        <div className="footer-crest"><Image src={`${ASSET_ROOT}/gajraj-crest.jpg`} alt="Gajraj Legion crest" width={260} height={296} /></div>
         <h2>ONE TEAM.<br/>ONE LEGION.<br/><span>ONE VICTORY.</span></h2>
         <div className="footer-meta"><span>GAJRAJ LEGION © 2026</span><span>UNNAO TEACHERS’ PREMIER LEAGUE • T25</span><a href="#top">BACK TO TOP ↑</a></div>
       </footer>
