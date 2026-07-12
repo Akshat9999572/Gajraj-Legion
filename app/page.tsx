@@ -73,7 +73,7 @@ export default function Home() {
       <section className="leaders" id="leaders">
         <div className="leaders-title">
           <p className="section-index">02 — THE LEADERSHIP</p>
-          <h2>TWO MINDS.<br/><span>ONE MISSION.</span></h2>
+          <h2>THREE LEADERS.<br/><span>ONE MISSION.</span></h2>
         </div>
         <article className="leader-card owner">
           <Image className="leader-photo" src={`${ASSET_ROOT}/alok-awasthi.jpg`} alt="Alok Awasthi, owner of Gajraj Legion" fill sizes="(max-width: 900px) 50vw, 33vw" />
@@ -88,6 +88,13 @@ export default function Home() {
           <span className="role">CAPTAIN</span><span className="number">11</span>
           <h3>MAYANK<br/>MISHRA</h3>
           <p>Leading fourteen educators into one fearless unit.</p>
+        </article>
+        <article className="leader-card vice-captain">
+          <Image className="leader-photo" src={`${ASSET_ROOT}/saurabh-singh.png`} alt="Saurabh Singh, vice captain of Gajraj Legion" fill sizes="(max-width: 900px) 50vw, 25vw" />
+          <div className="leader-shade" />
+          <span className="role">VICE CAPTAIN</span><span className="number">06</span>
+          <h3>SAURABH<br/>SINGH</h3>
+          <p>Bringing calm authority and match-day intent to the Legion core.</p>
         </article>
       </section>
 
@@ -111,10 +118,10 @@ export default function Home() {
         </div>
         <div className="roster">
           {squad.map((name, i) => (
-            <div className={`player ${i === 0 || i === 10 ? "featured" : ""}`} key={name}>
+            <div className={`player ${i === 0 || i === 5 || i === 10 ? "featured" : ""}`} key={name}>
               <span>{String(i + 1).padStart(2, "0")}</span>
               <h3>{name}</h3>
-              <b>{i === 0 ? "OWNER" : i === 10 ? "CAPTAIN" : "GAJRAJ LEGION"}</b>
+              <b>{i === 0 ? "OWNER" : i === 5 ? "VICE CAPTAIN" : i === 10 ? "CAPTAIN" : "GAJRAJ LEGION"}</b>
               <i>↗</i>
             </div>
           ))}
