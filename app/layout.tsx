@@ -12,11 +12,21 @@ export const metadata: Metadata = {
     siteName: "Gajraj Legion",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/og-whatsapp.png?v=2",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "Gajraj Legion — The Royal Force of UTPL 2026",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Gajraj Legion | UTPL 2026",
     description: "The royal force of Unnao Teachers' Premier League 2026.",
+    images: ["/og-whatsapp.png?v=2"],
   },
   other: { "codex-preview": "development" },
 };
