@@ -50,3 +50,11 @@
 @media(max-width:1180px) and (min-width:901px){.leaders{grid-template-columns:repeat(3,minmax(0,1fr))}.leaders-title{grid-column:1/-1;min-height:340px}.leaders-title h2{max-width:720px;font-size:clamp(58px,7vw,84px)}}
 @media(max-width:900px){.leaders-title h2{font-size:clamp(50px,9vw,74px)}}
 @media(max-width:760px){.leaders-title h2{font-size:clamp(40px,12.5vw,58px);line-height:.9}}
+
+/* Balanced front/back kit presentation */
+.kit-section{grid-template-columns:minmax(300px,34%) repeat(2,minmax(0,1fr));column-gap:clamp(4px,1.2vw,20px);padding-right:clamp(12px,2vw,30px);overflow:hidden}
+.jersey,.jersey.back{width:100%;height:clamp(560px,48vw,700px);align-self:end;min-width:0}
+.jersey img{object-position:center bottom}
+@media(max-width:900px){.kit-section{grid-template-columns:repeat(2,minmax(0,1fr));padding-right:18px;column-gap:8px}.kit-copy{grid-column:1/-1}.jersey,.jersey.back{height:clamp(430px,62vw,590px)}}
+@media(max-width:760px){.kit-section{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:0 10px 18px;column-gap:4px}.kit-copy{grid-column:1/-1}.jersey,.jersey.back{height:clamp(300px,82vw,430px)}.jersey.front{transform:translateX(4px)}.jersey.back{transform:translateX(-4px)}}
+@media(max-width:380px){.jersey,.jersey.back{height:300px}}
