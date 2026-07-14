@@ -38,7 +38,10 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <p className="eyebrow"><span>UTPL 2026</span> • T25 CRICKET • UNNAO</p>
-          <h1>THE LEGION<br/>HAS <em>ARRIVED.</em></h1>
+          <h1 aria-label="The Legion has arrived">
+            <span className="hero-title-line">THE LEGION</span>
+            <span className="hero-title-line hero-title-line-accent">HAS <em>ARRIVED.</em></span>
+          </h1>
           <p className="dek">Fourteen teachers. One crest. A new chapter in Unnao cricket begins in sky blue.</p>
           <div className="hero-actions">
             <a className="button dark" href="#squad">Explore the squad <span>↓</span></a>
