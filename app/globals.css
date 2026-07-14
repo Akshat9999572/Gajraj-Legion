@@ -66,3 +66,8 @@
 
 /* Keep ARRIVED visible on browsers without gradient text clipping */
 .hero-title-line em{color:var(--blue);background:none;-webkit-text-fill-color:currentColor;animation:none!important}
+
+/* Fit the longer second line inside the hero copy column */
+.hero-title-line-accent{font-size:.69em;line-height:1;letter-spacing:-.055em;max-width:100%}
+@media(max-width:760px){.hero-title-line-accent{font-size:.66em;white-space:nowrap}}
+@media(max-width:380px){.hero-title-line-accent{font-size:.62em;white-space:nowrap}}
