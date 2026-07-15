@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { RoyalElephant } from "./RoyalElephant";
 import { MotionEffects } from "./MotionEffects";
+import { RoyalWelcome } from "./RoyalWelcome";
 
 const ASSET_ROOT = "/assets";
 
@@ -25,6 +26,7 @@ export default function Home() {
   return (
     <main>
       <MotionEffects />
+      <RoyalWelcome />
       <nav className="topbar" aria-label="Primary navigation">
         <a className="wordmark" href="#top" aria-label="Gajraj Legion home">
           <span>GL</span> GAJRAJ LEGION
