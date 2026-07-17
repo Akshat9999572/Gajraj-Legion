@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, type CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 
 type PetalStyle = CSSProperties & Record<`--${string}`, string>;
 
@@ -18,11 +18,14 @@ const petals = Array.from({ length: 42 }, (_, index) => ({
 
 export function RoyalWelcome() {
   const playedRef = useRef(false);
+  const startingRef = useRef(false);
   const audioRef = useRef<HTMLAudioElement[]>([]);
   const timersRef = useRef<number[]>([]);
+  const [needsTap, setNeedsTap] = useState(false);
 
   const playWelcome = useCallback(async () => {
-    if (playedRef.current) return;
+    if (playedRef.current || startingRef.current) return;
+    startingRef.current = true;
 
     const nagada = new Audio("/audio/indian-nagada.mp3");
     const elephant = new Audio("/audio/elephant-war-trumpet.ogg");
@@ -31,9 +34,24 @@ export function RoyalWelcome() {
     nagada.volume = 1;
     elephant.volume = 1;
 
-    await nagada.play();
-    playedRef.current = true;
-    audioRef.current = [nagada, elephant];
+    try {
+      // Starting both elements inside the tap unlocks delayed elephant audio on iOS.
+      elephant.muted = true;
+      await Promise.all([nagada.play(), elephant.play()]);
+      elephant.pause();
+      elephant.currentTime = 0;
+      elephant.muted = false;
+      playedRef.current = true;
+      audioRef.current = [nagada, elephant];
+      setNeedsTap(false);
+    } catch (error) {
+      nagada.pause();
+      elephant.pause();
+      setNeedsTap(true);
+      throw error;
+    } finally {
+      startingRef.current = false;
+    }
 
     timersRef.current.push(
       window.setTimeout(() => {
@@ -50,22 +68,25 @@ export function RoyalWelcome() {
     const attemptTimer = window.setTimeout(() => {
       playWelcome().catch(() => undefined);
     }, 420);
-    const unlock = () => playWelcome().catch(() => undefined);
-    window.addEventListener("pointerdown", unlock, { once: true });
-    window.addEventListener("keydown", unlock, { once: true });
-
     return () => {
       window.clearTimeout(attemptTimer);
       timersRef.current.forEach(window.clearTimeout);
       audioRef.current.forEach((audio) => audio.pause());
-      window.removeEventListener("pointerdown", unlock);
-      window.removeEventListener("keydown", unlock);
     };
   }, [playWelcome]);
 
   return (
-    <div className="flower-shower" aria-hidden="true">
-      {petals.map((petal) => <i key={petal.id} style={petal.style} />)}
-    </div>
+    <>
+      <div className="flower-shower" aria-hidden="true">
+        {petals.map((petal) => <i key={petal.id} style={petal.style} />)}
+      </div>
+      {needsTap && (
+        <button className="mobile-sound-gate" type="button" onClick={() => playWelcome().catch(() => undefined)}>
+          <span aria-hidden="true">♛</span>
+          <strong>Tap for royal welcome</strong>
+          <small>Indian nagada &amp; elephant roar</small>
+        </button>
+      )}
+    </>
   );
 }
