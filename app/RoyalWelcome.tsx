@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 
 type PetalStyle = CSSProperties & Record<`--${string}`, string>;
+const WELCOME_DURATION = 9000;
 
 const petals = Array.from({ length: 42 }, (_, index) => ({
   id: index,
@@ -22,6 +23,7 @@ export function RoyalWelcome() {
   const audioRef = useRef<HTMLAudioElement[]>([]);
   const timersRef = useRef<number[]>([]);
   const [needsTap, setNeedsTap] = useState(false);
+  const [showerActive, setShowerActive] = useState(false);
 
   const playWelcome = useCallback(async () => {
     if (playedRef.current || startingRef.current) return;
@@ -44,6 +46,7 @@ export function RoyalWelcome() {
       playedRef.current = true;
       audioRef.current = [nagada, elephant];
       setNeedsTap(false);
+      setShowerActive(true);
     } catch (error) {
       nagada.pause();
       elephant.pause();
@@ -60,7 +63,8 @@ export function RoyalWelcome() {
       window.setTimeout(() => {
         nagada.pause();
         nagada.currentTime = 0;
-      }, 8500),
+        setShowerActive(false);
+      }, WELCOME_DURATION),
     );
   }, []);
 
@@ -77,9 +81,11 @@ export function RoyalWelcome() {
 
   return (
     <>
-      <div className="flower-shower" aria-hidden="true">
-        {petals.map((petal) => <i key={petal.id} style={petal.style} />)}
-      </div>
+      {showerActive && (
+        <div className="flower-shower" aria-hidden="true">
+          {petals.map((petal) => <i key={petal.id} style={petal.style} />)}
+        </div>
+      )}
       {needsTap && (
         <button className="mobile-sound-gate" type="button" onClick={() => playWelcome().catch(() => undefined)}>
           <span aria-hidden="true">♛</span>
