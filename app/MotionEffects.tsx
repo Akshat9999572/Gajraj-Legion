@@ -11,7 +11,7 @@ const revealSelectors = [
   ".leaders-title > *",
   ".leader-card",
   ".kit-copy > *",
-  ".jersey",
+  ".jersey-3d",
   ".squad-head > *",
   ".player",
   "footer > *",

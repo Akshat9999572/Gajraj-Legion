@@ -113,8 +113,17 @@ export default function Home() {
           <h2>WEAR THE<br/><span>SKY.</span><br/>CARRY THE<br/><i>CROWN.</i></h2>
           <p>The elephant stands for strength held with wisdom. Gold marks ambition. Sky blue carries the openness of every possibility.</p>
         </div>
-        <div className="jersey front"><Image src={`${ASSET_ROOT}/gajraj-jersey-front.png`} alt="Front of the Gajraj Legion cricket jersey" fill sizes="(max-width: 700px) 90vw, 42vw" /></div>
-        <div className="jersey back"><Image src={`${ASSET_ROOT}/gajraj-jersey-back.png`} alt="Back of the Gajraj Legion cricket jersey" fill sizes="(max-width: 700px) 90vw, 34vw" /></div>
+        <div className="jersey-3d motion-reveal is-visible" role="img" aria-label="Gajraj Legion jersey rotating to show its front and back">
+          <div className="jersey-3d-spin">
+            <div className="jersey-face jersey-face-front">
+              <Image src={`${ASSET_ROOT}/gajraj-jersey-front.png`} alt="" fill sizes="(max-width: 760px) 84vw, 45vw" />
+            </div>
+            <div className="jersey-face jersey-face-back">
+              <Image src={`${ASSET_ROOT}/gajraj-jersey-back.png`} alt="" fill sizes="(max-width: 760px) 84vw, 45vw" />
+            </div>
+          </div>
+          <span className="jersey-3d-label">360° KIT VIEW</span>
+        </div>
       </section>
 
       <section className="squad" id="squad">
