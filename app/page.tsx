@@ -116,10 +116,10 @@ export default function Home() {
         <div className="jersey-3d motion-reveal is-visible" role="img" aria-label="Gajraj Legion jersey rotating to show its front and back">
           <div className="jersey-3d-spin">
             <div className="jersey-face jersey-face-front">
-              <Image src={`${ASSET_ROOT}/gajraj-jersey-front.png`} alt="" fill sizes="(max-width: 760px) 84vw, 45vw" />
+              <Image src={`${ASSET_ROOT}/gajraj-jersey-3d-front.png`} alt="" fill sizes="(max-width: 760px) 84vw, 45vw" />
             </div>
             <div className="jersey-face jersey-face-back">
-              <Image src={`${ASSET_ROOT}/gajraj-jersey-back.png`} alt="" fill sizes="(max-width: 760px) 84vw, 45vw" />
+              <Image src={`${ASSET_ROOT}/gajraj-jersey-3d-back.png`} alt="" fill sizes="(max-width: 760px) 84vw, 45vw" />
             </div>
           </div>
           <span className="jersey-3d-label">360° KIT VIEW</span>
