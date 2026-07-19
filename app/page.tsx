@@ -2,7 +2,6 @@ import Image from "next/image";
 import { RoyalElephant } from "./RoyalElephant";
 import { MotionEffects } from "./MotionEffects";
 import { RoyalWelcome } from "./RoyalWelcome";
-import { JerseyModel } from "./JerseyModel";
 
 const ASSET_ROOT = "/assets";
 
@@ -115,8 +114,7 @@ export default function Home() {
           <p>The elephant stands for strength held with wisdom. Gold marks ambition. Sky blue carries the openness of every possibility.</p>
         </div>
         <div className="jersey-3d motion-reveal is-visible" role="img" aria-label="Gajraj Legion jersey rotating to show its front and back">
-          <JerseyModel />
-          <div className="jersey-3d-spin" aria-hidden="true">
+          <div className="jersey-3d-spin">
             <div className="jersey-face jersey-frame-front">
               <Image src={`${ASSET_ROOT}/gajraj-jersey-3d-front.png`} alt="" fill sizes="(max-width: 760px) 84vw, 45vw" />
             </div>
